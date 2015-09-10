@@ -2,6 +2,10 @@ FROM php:fpm
 
 MAINTAINER Jono Warren <jono@justpark.com>
 
+# Add Latest nginx
+ADD ./setup.sh /tmp/
+RUN /bin/bash /tmp/setup.sh
+
 # Install modules
 RUN apt-get update && apt-get install -y \
 	libmcrypt-dev \
